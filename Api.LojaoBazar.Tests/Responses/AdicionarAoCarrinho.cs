@@ -1,4 +1,6 @@
 ﻿using Api.LojaoBazar.Domain.Entities;
+using Api.LojaoBazar.Domain.Interfaces;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +15,13 @@ namespace Api.LojaoBazar.Tests.Responses
         [Fact]
         public void Test1()
         {
+            //Inicialização do Objeto Carrinho
+
+            Carrinho carrinho = new Carrinho();
+            carrinho.setID(5);
+            carrinho.setDataCompra(DateTime.Now);
+          
+
             Produto produto1 = new Produto();
             produto1.setNome("Notebook Acer Aspire 3 Intel Core");
             produto1.setQuantidade(1);
@@ -28,34 +37,35 @@ namespace Api.LojaoBazar.Tests.Responses
             produto2.setFornecedor("Nestle");
             produto2.setPreco(3.69);
 
+            //Mock Frete
 
-            Frete frete = new Frete();
-            frete.setCodigoServico("04014");
-            frete.setCepOrigem("26985254"); //Não pode ser formatado
-            frete.setCepDestino("26985254");
-            frete.setPeso("2"); //Em quilogramas (kg)
-            frete.setCodigoFormato(1); //1,2,3
-            frete.setComprimento(12.6m);
-            frete.setAltura(1.2m);
-            frete.setLargura(2.3m);
-            frete.setDiametro(5.6m);
-            frete.setMaoPropria(false);
-            frete.setValorDeclarado(2.3m);
-            frete.setAvisoRecebimento(false);
+            Mock<ICorreioService> fretemock = new Mock<ICorreioService>();
+            fretemock.Setup(m => m.CalculaFrete()).Returns(2.69);
+
+            Frete frete = new Frete(fretemock.Object);
+            double resFrete = frete.CalculaFrete();
+
+            Assert.Equal(2.69, resFrete);
 
 
             ItensCarrinho item1 = new ItensCarrinho();
-            item1.setID(5);
-            item1.setNomeProduto("Camisa de Alça");
-            item1.setPreco(5.33);
-            item1.setProdutoID(6);
-            item1.setCarrinhoID(4);     
+            item1.setID(1); //gerado automaticamente 
+            item1.setNomeProduto( produto1.getNome() );
+            item1.setPreco( produto1.getPreco() );
+            item1.setProdutoID( produto1.getId() );
+            item1.setCarrinhoID(5); //ID do objeto carrinho
 
-            Carrinho carrinho = new Carrinho();
-            carrinho.setID(5);
-            carrinho.setDataCompra( DateTime.Now );
-            carrinho.setFrete(4.69);
-            carrinho.setValorTotal(5.69);
+            ItensCarrinho item2 = new ItensCarrinho();
+            item2.setID(2);//gerado automaticamente 
+            item2.setNomeProduto( produto2.getNome() );
+            item2.setPreco( produto2.getPreco() );
+            item2.setProdutoID( produto2.getId() );
+            item2.setCarrinhoID(5); //ID do objeto carrinho
+
+            carrinho.setFrete(resFrete);
+            carrinho.setValorTotal(3052.72);
+
+            Assert.Equal(carrinho.getFrete(), resFrete);
         }
     }
 }

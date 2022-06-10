@@ -18,29 +18,31 @@ namespace Api.LojaoBazar.Domain.Entities
 
         private string Fornecedor { get; set; }
 
-        public void setId(int v)
-        {
-            Id = v;
-        }
+        //Setters
 
-        public void setQuantidade(int v)
-        {
-            Quantidade = v;
-        }
+        public void setId(int v)  {  Id = v;  }
 
-        public void setFornecedor(string v)
-        {
-            Fornecedor = v;
-        }
+        public void setQuantidade(int v){  Quantidade = v;  }
 
-        public void setPreco(double v)
-        {
-            Preco = v;
-        }
+        public void setFornecedor(string v) {  Fornecedor = v;   }
 
-        public void setNome(string v)
-        {
-            Nome = v;
-        }
+        public void setPreco(double v){  Preco = v; }
+
+        public void setNome(string v){ Nome = v;  }
+
+        //Getters
+        public int getId() { return Id; }   
+
+        public string getNome() { return Nome; }
+
+        public int getQuantidade() { return Quantidade; }       
+
+        public double getPreco() { return Preco; }
+
+        public string getFornecedor() { return Fornecedor; }
+
+
+
+
     }
 }

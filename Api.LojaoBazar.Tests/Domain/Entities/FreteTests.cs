@@ -1,4 +1,6 @@
 ﻿using Api.LojaoBazar.Domain.Entities;
+using Api.LojaoBazar.Domain.Interfaces;
+using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +13,7 @@ namespace Api.LojaoBazar.Tests.Domain.Entities
     public class FreteTests
     {
         [Fact]
-        public void Test1()
+        public void TesteIntegridadeObjeto()
         {
             Frete frete = new Frete();
             frete.setCodigoServico("04014");
@@ -29,6 +31,18 @@ namespace Api.LojaoBazar.Tests.Domain.Entities
 
             Assert.NotNull(frete);
 
+        }
+
+        [Fact]
+        public void TesteUsandoMockCriarFrete()
+        {
+            Mock<ICorreioService> mock = new Mock<ICorreioService>();
+            mock.Setup(m => m.CalculaFrete()).Returns(36.69);
+
+            Frete frete = new Frete(mock.Object);
+            double res = frete.CalculaFrete();
+
+            Assert.Equal(36.69, res);
         }
     }
 }

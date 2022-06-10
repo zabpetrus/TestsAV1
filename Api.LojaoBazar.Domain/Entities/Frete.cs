@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.LojaoBazar.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Api.LojaoBazar.Domain.Entities
 {
-    public class Frete
+    public class Frete : ICorreioService
     {
         private string CodigoServico { get; set; }
 
@@ -32,66 +33,74 @@ namespace Api.LojaoBazar.Domain.Entities
 
         private int CodigoFormato { get; set; }
 
+        private ICorreioService _correioService;
 
+        //Construtores
+        public Frete() { }
 
-        public void setCodigoServico(string v)
+        public Frete(ICorreioService correioService)
         {
-            CodigoServico = v;
+            _correioService = correioService;
         }
 
-        public void setCepOrigem(string v)
-        {
-            CepOrigem = v;
-        }
 
-        public void setCepDestino(string v)
-        {
-            CepDestino = v;
-        }
+        //Setters
 
-        public void setPeso(string v)
-        {
-            Peso = v;
-        }
+        public void setCodigoServico(string v){  CodigoServico = v;  }
 
-        public void setAltura(decimal v)
-        {
-            Altura = v;
-        }
+        public void setCepOrigem(string v){  CepOrigem = v;  }
 
-        public void setMaoPropria(bool v)
-        {
-            MaoPropria = v;
-        }
+        public void setCepDestino(string v){  CepDestino = v;  }
 
-        public void setAvisoRecebimento(bool v)
-        {
-            AvisoRecebimento = v;
-        }
+        public void setPeso(string v){   Peso = v;  }
 
-        public void setValorDeclarado(decimal v)
-        {
-            ValorDeclarado = v;
-        }
+        public void setAltura(decimal v){  Altura = v;  }
 
-        public void setDiametro(decimal v)
-        {
-            Diametro = v;
-        }
+        public void setMaoPropria(bool v){  MaoPropria = v;  }
 
-        public void setLargura(decimal v)
-        {
-            Largura = v;
-        }
+        public void setAvisoRecebimento(bool v){  AvisoRecebimento = v;  }
 
-        public void setComprimento(decimal v)
-        {
-            Comprimento = v;
-        }
+        public void setValorDeclarado(decimal v){   ValorDeclarado = v;  }
 
-        public void setCodigoFormato(int v)
+        public void setDiametro(decimal v){  Diametro = v; }
+
+        public void setLargura(decimal v){  Largura = v;  }
+
+        public void setComprimento(decimal v){  Comprimento = v; }
+
+        public void setCodigoFormato(int v){  CodigoFormato = v;  }
+
+        //Getters
+        public string getCodigoServico() { return CodigoServico; }
+
+        public string getCepOrigem() { return CepOrigem; }
+
+        public string getCepDestino() { return CepDestino; }
+
+        public string getPeso() { return Peso; }
+
+        public decimal getAltura() { return Altura; }
+
+        public bool getMaoPropria() { return MaoPropria; }
+
+        public bool getAvisoRecebimento() { return AvisoRecebimento; }
+
+        public decimal getValorDeclarado() { return ValorDeclarado; }
+
+        public decimal getDiametro() { return Diametro; }
+
+        public decimal getLargura() { return Largura; }
+
+        public decimal getComprimento() { return Comprimento; }
+
+        public int getCodigoFormato() { return CodigoFormato; }
+
+        //Implementação da interface
+
+        public double CalculaFrete()
         {
-            CodigoFormato = v;
+            return _correioService.CalculaFrete();
+
         }
     }
 }

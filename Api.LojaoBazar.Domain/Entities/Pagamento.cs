@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Api.LojaoBazar.Domain.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Api.LojaoBazar.Domain.Entities
 {
-    public class Pagamento
+    public class Pagamento : IPagamentoService
     {
 
         private double Valor { get; set; }
@@ -15,21 +16,44 @@ namespace Api.LojaoBazar.Domain.Entities
 
         private char FormaPagamento { get; set; }
 
+        private IPagamentoService _pagamentoService;
 
+        //Construtores
 
-        public void setValor(double v)
-        {
-            Valor = v;
+        public Pagamento() { }
+
+        public Pagamento(IPagamentoService pagamentoService)
+        {          
+            _pagamentoService = pagamentoService;
         }
 
-        public void setClienteID(int _clienteID)
+        //Setters
+
+        public void setValor(double v){ Valor = v; }
+
+        public void setClienteID(int _clienteID){ clienteID = _clienteID; }
+
+        public void setFormaPagamento(char v){ FormaPagamento = v;  }
+
+        //Getters
+
+        public int getClienteID(){ return clienteID; }
+
+        public double getValor(){ return Valor; }
+
+        public char getFormaPagamento() { return FormaPagamento; }
+
+
+        //Métodos da Interface
+
+        public bool CartaoValido()
         {
-            clienteID = _clienteID;
+            return _pagamentoService.CartaoValido();
         }
 
-        public void setFormaPagamento(char v)
+        public bool GetPagamento(int id)
         {
-            FormaPagamento = v;
+            return _pagamentoService.GetPagamento(id);
         }
     }
 }
