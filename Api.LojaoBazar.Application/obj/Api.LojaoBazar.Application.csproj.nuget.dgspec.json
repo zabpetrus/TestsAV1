@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Application\\Api.LojaoBazar.Application.csproj": {}
+    "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Application\\Api.LojaoBazar.Application.csproj": {}
   },
   "projects": {
-    "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Application\\Api.LojaoBazar.Application.csproj": {
+    "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Application\\Api.LojaoBazar.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Application\\Api.LojaoBazar.Application.csproj",
+        "projectUniqueName": "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Application\\Api.LojaoBazar.Application.csproj",
         "projectName": "Api.LojaoBazar.Application",
-        "projectPath": "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Application\\Api.LojaoBazar.Application.csproj",
+        "projectPath": "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Application\\Api.LojaoBazar.Application.csproj",
         "packagesPath": "C:\\Users\\zsant\\.nuget\\packages\\",
-        "outputPath": "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Application\\obj\\",
+        "outputPath": "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj": {
-                "projectPath": "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj"
+              "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj": {
+                "projectPath": "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj"
               }
             }
           }
@@ -51,10 +51,6 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[11.0.1, )"
-            },
-            "Microsoft.Extensions.DependencyInjection": {
-              "target": "Package",
-              "version": "[6.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -80,14 +76,14 @@
         }
       }
     },
-    "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj": {
+    "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj",
+        "projectUniqueName": "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj",
         "projectName": "Api.LojaoBazar.Domain",
-        "projectPath": "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj",
+        "projectPath": "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Domain\\Api.LojaoBazar.Domain.csproj",
         "packagesPath": "C:\\Users\\zsant\\.nuget\\packages\\",
-        "outputPath": "D:\\vstudio_projects\\ApiLojaoBazar\\Api.LojaoBazar\\Api.LojaoBazar.Domain\\obj\\",
+        "outputPath": "D:\\vstudio\\LojaBazar\\Api.LojaoBazar.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -123,10 +119,6 @@
             "AutoMapper": {
               "target": "Package",
               "version": "[11.0.1, )"
-            },
-            "Microsoft.Extensions.DependencyInjection": {
-              "target": "Package",
-              "version": "[6.0.0, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
